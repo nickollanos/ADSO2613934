@@ -14,4 +14,4 @@
 
 <!-- para insertar una imagen en markdown-->
 
-![Hollow](http://tinyurl.com/5n85n23e)  
+![Hollow](http://tinyurl.com/39vx4fjx)  
