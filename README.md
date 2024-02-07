@@ -3,14 +3,14 @@
 
 ## TGO analisis y desarrollo de sotfware
 
-**Lista de temas** público
-
 <!-- para crear una tabla en markdown-->
 
 | Temas |tipo | 
 |----------|--------|
-|1. PHP |   B  |
-|2. POO |   C  |
+|1. POO |   PHP orientado a Objetos |
+|2. PDO |   Objetos de datos en PHP  |
+|3. MVC |   Modelo vista controlador |
+|2. Laravel |   Framework en PHP  |
 
 <!-- para insertar una imagen en markdown-->
 
