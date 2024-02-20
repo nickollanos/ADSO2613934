@@ -41,12 +41,33 @@ main{
                 border: 2px solid#fff;
                 background-color: #fff8;
                 border-radius: 4rem;
-                padding: 1rem;
                 width: 300px;
                 transition: all 0.5s ease-in;
                 &:is(:hover){
-                    background-color: #1b6ad1;
+                    background-color: wheat;
                     transform: scale(1.05);
+                }
+            &:is(:hover) a span{
+                    transform: scale(1.1) rotateY(360deg);
+                }
+            a:is(:link, :visited){
+                display: flex;
+                align-items: center;
+                padding: 0.6rem;
+                text-decoration: none;
+                gap:0.6rem;
+                color:rgba(0,0,0,0.493);
+                span{
+                    background-color: cadetblue;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: brown;
+                    height: 36px;
+                    transition: all 0.4s ease-in-out;
+                    width: 36px;
+                    }
                 }
             }
         }
