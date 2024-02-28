@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>03-visibility</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-        section {
-            background-color: grey;
+        section{
+            background-color: #0009;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -19,42 +18,54 @@
             h2 {
                 margin: 0;
             } 
+
             form {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        width: 300px;
+                border: 2px solid #fff6;
+                background-color: rgba(224, 15, 15, 0.2);
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                width: 300px;
 
-        label {
-            display: flex;
-            gap: 1rem;
-        }
+                label {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 1.4rem;
+                }
 
-        output {
-            font-size: 1.4rem;
-        }
+                output {
+                    font-size: 1.4rem;
+                }
 
-        button {
-            background-color: red;
-            border: none;
-            font-size: 1rem;
-            width: 260px;
-            padding: 1rem;
-        }
+                button {
+                    background-color: #994bde;
+                    border: 2px solid #fff6;
+                    border-radius: 8px;
+                    color: #fff9;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    width: 300px;
+                    padding: 1rem;
+                }
 
-        div.result {
-            margin-top: 1rem;
-            font-size: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            background-color: grey;
-            width: 240px;
-        }
-    }
-}
+                }
+
+                table{
+                border-collapse: collapse;
+                tr{
+                    td{
+                        background-color: #fff1;
+                        border: 1px solid #fff;
+                        padding: 8px    
+                    }
+                }
+                    tr:nth-child(even) td:nth-child(even){
+                        background-color: rgb(250, 181, 92);
+                    }
+                }
+            }
+            
     </style>
 </head>
 
@@ -90,37 +101,47 @@
                 }
 
                 private function contentTable() {
-                    return '<tr> 
-                            <td> </td>
-                            </tr>';
+                    for($r=0; $r< $this->nr ; $r++) {
+                        echo '<tr>';
+                        for($c=0; $c < $this->nc ; $c++) {
+                            echo '<td></td>';
+                        }
+                        echo '</tr>';
+                    }
                 }
-
                 private function endTable() {
                     return '</table>';
                 }
             }
 
-            $table = new Tablemaker(10, 8);
-            echo $table->drawTable();
+            //$table = new Tablemaker(10, 8);
+            //echo $table->drawTable();
         ?>
-    <h2>Table maker</h2>
-    <form action="" method="post">
-    <label>
-        <p>Rows:</p>
-        <input type="range" name="n1" step="1" value="0" min="1" max="20" oninput="o1.value=this.value">
-        <output id="o1">0</output>
-    </label>
-    <label>
-        <p>Columns:</p>
-        <input type="range" name="n2" step="1" value="0" min="1" max="20" oninput="o2.value=this.value">
-        <output id="o2">0</output>
-    </label><br><br>
-    <button>Make Table</button>
-    <div class="result">
-</div>
-  </form>
-    </section>
-</main>
+        <h2>Table maker</h2>
+        <form action="" method="post">
+            <label>
+                <p>Rows:</p>
+                <input type="range" name="nr" min="1" max="20" step="1" value="0" oninput="o1.value=this.value">
+                <output id="o1">0</output>
+            </label>
+            <label>
+                <p>Columns:</p>
+                <input type="range" name="nc" min="1" max="20" step="1" value="0" oninput="o2.value=this.value">
+                <output id="o2">0</output>
+            </label>
+            <button> Make Table </button>
+        </form>
+        <?php
+                    if($_POST) {
+                    $nr = $_POST['nr'];
+                    $nc = $_POST['nc'];
+
+                    $table = new Tablemaker($nr, $nc);
+                    $table->drawTable();
+                    }
+                ?>
+        </section>
+    </main>
 </body>
 
 </html>
