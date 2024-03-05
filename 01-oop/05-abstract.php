@@ -69,77 +69,51 @@
         </a>
     </nav>
 <main>
-    <h1>04-inheritance</h1>
+    <h1>05-Abstract</h1>
     <section>
-        <?php
-        class Pokemon {
-            // Attributes
-            protected $name;
-            protected $type;
-            protected $healt;
-            protected $image;
+       <?php
+            abstract class DataBase {
+                // Atriburtes
+                protected $host;
+                protected $user;
+                protected $pass;
+                protected $dbname;
+                protected $conx;
 
-            // Methods
-            public function __construct($name, $type, $healt, $image) {
-                $this->name = $name;
-                $this->type = $type;
-                $this->healt = $healt;
-                $this->image = $image;
-            }
+                public function __construct($dbname,
+                                            $host='localhost',
+                                            $user='root',
+                                            $pass='') {
+                    $this->host = $host;
+                    $this->user = $user;
+                    $this->pass = $pass;
+                    $this->dbname = $dbname;
 
-            public function attack() {
-                return "Attack";
-            }
-
-            public function defense() {
-                return "Defense";
-            }
-
-            public function show() {
-                return
-                "<div class='pk'>" .
-                "<img src='" . $this->image . "'>" .
-                "<div class='info'>" .
-                "<span> NAME: " . $this->name . "</span>" .
-                "<span> TYPE: " . $this->type . "</span>" .
-                "<span> HEALT: " . $this->healt . "</span>" .
-                "</div>" .
-                "</div>";
-
-                //return $this->name . " | " . $this->type . " | " . $this->healt;
-            }
-        }
-
-        class Evolve extends Pokemon {
-            public function levelUp($name, $type, $healt, $image) {
-                parent::__construct($name, $type, $healt, $image);
+                                            }
                 
-                //$this->name = $name;
-                //$this->type = $type;
-                //$this->healt = $healt;
+                public function connect(){
+                    try {
+                        $this->conx = new PDO("mysql:host=$this->host;
+                        dbname=$this->dbname", $this->user, $this->pass);
+                        if($this->conx){
+                            echo"☺";
+                        }
+                    } catch (PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
+                }
             }
-        }
 
-        //$pk = new Evolve('squirtle', 'water', 45);
-        //$pk->attack();
-        //$pk->defense();
-        //$pk->levelUp("wartotle","water",90);
-        //echo $pk->show();
-        //$pk->levelUp("wartotle","water",180);
-        //echo $pk->show();
-        ?>
-        <h2>Evolve your Pokemon</h2>
-        <div class="pks">
-        <?php
-            $pk = new Evolve('squirtle', 'water', 45, 'img/squirtle.png');
-            echo $pk->show();
-            $pk->levelUp('wartotle', 'water', 65, 'img/wartotle.png');
-            echo $pk->show();
-            $pk->levelUp('blastoise', 'water', 85, 'img/blastoise.png');
-            echo $pk->show();
-        ?>
-        </div>
-        </section>
+                class Pokemon extends DataBase {
+
+                }
+
+                $db = new Pokemon('adso2613934');
+                $db->connect();
+
+
+       ?>
+    </section>
     </main>
 </body>
 
