@@ -1,0 +1,76 @@
+/* ------------------
+    VARIABLES
+------------------ */
+:root{
+    --ff-heading: "Russo one", sans-serif;
+    --ff-body: "Poppins", sans-serif;
+    --color-first:#000000;
+    --color-second:#3D0000;
+    --color-third:#950101;
+    --color-fourth:#FF0000;
+}
+
+/* ------------------
+    GENERAL
+------------------ */
+
+body{
+    /*background-color: var(--color-second);*/
+    /*background-image: linear-gradient(to bottom,#550000 16%,#A30000);*/
+    background-color: #ffffff;
+    font-family: var(--ff-body);
+    font-weight: 100;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    main{
+        background: url(../images/bg-main.png);
+        height: 800px;
+        overflow: hidden;
+        width: 400px;
+    }
+}
+
+/* ------------------
+   01- WELCOME
+------------------ */
+
+main.welcome{
+    header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 1.5rem;
+    }
+    section.slider{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+    }
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a:is(:link, :visited){
+            background: url(../images/btn.png) no-repeat center;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+            margin-left: 1rem;
+            transition: all 0.4s ease-in;
+            width: 300px;
+        }
+    }
+    a:is(:hover){
+        background: url(../images/btn-hover.png) no-repeat center;
+        transform: scale(1.02) translateY(-5px);
+    }
+    a:is(:active){
+        background: url(../images/btn-active.png) no-repeat center;
+    }
+}
