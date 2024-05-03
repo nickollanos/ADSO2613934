@@ -11,13 +11,25 @@
 }
 
 /* ------------------
+    PRELOAD
+------------------ */
+body:after{
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    width: 0;
+    z-index: -1;
+    content: url(../images/btn-active.png) url(../images/btn-hover.png);
+}
+
+/* ------------------
     GENERAL
 ------------------ */
 
 body{
     /*background-color: var(--color-second);*/
     /*background-image: linear-gradient(to bottom,#550000 16%,#A30000);*/
-    background-color: #ffffff;
+    background-color: #000000;
     font-family: var(--ff-body);
     font-weight: 100;
     font-style: normal;
@@ -42,14 +54,81 @@ main.welcome{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-block: 1.5rem;
+        margin-block: 2rem;
+        margin-right: 0.3rem;;
     }
-    section.slider{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
+
+    section.owl-carousel{
+       div.owl-item {
+            display: flex;
+            justify-content: center;
+            img {
+                height: 306px;
+                width: 306px;
+            }
+        }
+        
+    div.owl-nav{
+            position: relative;
+            top: -180px;
+            display: flex;
+            justify-content: space-between;
+            button{
+                transition: transform 0.2s ease-in;
+                span{
+                    display: flex;
+                    height: 44px;
+                    width: 34px;
+                    text-indent: -9999px;
+                }
+            }
+            button:is(:hover){
+                background-color: transparent;
+            }
+            button.owl-prev{
+                span{
+                    background: url(../images/btn-prev.svg) no-repeat center;
+                }
+            }
+            button.owl-prev:hover{
+                transform: scale(1.1) translateX(-4px);
+            }
+            button.owl-next{
+                span{
+                    background: url(../images/btn-next.svg) no-repeat center;
+                }
+            }
+            button.owl-next:hover{
+                transform: scale(1.1) translateX(4px);
+            }
+        }
+        div.owl-dots{
+            position: relative;
+            top: -46px;
+            button{
+                transition: transform 0.2s ease-in;
+            }
+            button:is(:hover){
+                transform: scale(1.1);
+            }
+            button.owl-dot{
+                span{
+                    background-color: var(--color-first);
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+            button.owl-dot.active,
+            button.owl-dot:is(:hover){
+                span{
+                    background-color: var(--color-fourth);
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+        }
     }
+
     footer{
         display: flex;
         justify-content: center;
@@ -60,17 +139,37 @@ main.welcome{
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 5rem;
-            margin-left: 1rem;
+            margin-top: 1.3rem;
+            margin-left: rem;
             transition: all 0.4s ease-in;
             width: 300px;
         }
     }
+    
     a:is(:hover){
-        background: url(../images/btn-hover.png) no-repeat center;
+        background-color: var(--color-second);
         transform: scale(1.02) translateY(-5px);
     }
     a:is(:active){
-        background: url(../images/btn-active.png) no-repeat center;
+        background: url(../images/btn-hover.png) no-repeat center;
+    }
+}
+
+/* ------------------
+   02- CATALOGUE
+------------------ */
+main.catalogue{
+    header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 2rem;
+        margin-right: 0.3rem;
+        img.logo{
+            display: flex;
+            margin-block: rem;
+            margin-left: 1.8rem;
+            width: 204px;
+        }
     }
 }
