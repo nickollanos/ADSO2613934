@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameApp - Catalogue</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <main class="view-game">
+        <header>
+            <a href="index.html" class="btn-back">
+                <img src="images/btn-back.svg" alt="Back">
+            </a>
+            <h1>EFOOTBALL 2024</h1>
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+        <nav class="nav">
+            <img src="" alt="Menu" class="title-menu">
+            <menu>
+                <a href="login.html">
+                    <img src="images/ico-login.svg" alt="Login">Text
+                </a>
+                <a href="register.html">
+                    <img src="images/ico-register.svg" alt="Register">Text
+                </a>
+                <a href="catalogue.html">
+                    <img src="images/ico-catalogue.svg" alt="Catalogue">Text
+                </a>
+            </menu>
+        </nav>
+        <section>
+            <img src="images/view-game.png" alt="Game">
+            <article>
+                <div class="row">
+                    <div class="colum">
+                        <h4>CATEGORY</h4>
+                        <p>Play Station 5</p>
+                    </div>
+                    <div class="colum">
+                        <p class="price">$59</p>
+                    </div>
+                    <div class="row">
+                        <div class="colum">
+                            <h4 class="year">YEAR</h4>
+                            <p>2024</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="colum">
+                            <h4>DESCRIPTION:</h4>
+                            <p>Es un videojuego de simulación de fútbol 
+                                desarrollado por Konami Digital Entertainment 
+                                y publicado por Konami.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <footer>
+                <a href="" class="btn-colleccion">
+                    <img src="images/content-btn-colleccion.svg" alt="boton colleccion">
+                </a>
+            </footer>
+        </section>
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+
+            //-------------------------------------------------
+            $('header').on('click','.btn-burger', function(){
+                $(this).toggleClass('active')
+                $('.nav').toggleClass('active')
+            });
+            //-------------------------------------------------
+        
+    </script>
+</body>
+
+</html>
