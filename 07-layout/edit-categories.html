@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameApp - Edit-Categories</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <main class="edit-categories">
+        <header>
+            <a href="module-categories.html" class="btn-back-edit-users">
+                <img src="images/btn-back.svg" alt="Back">
+            </a>
+            <img class="img-add" src="images/title-edit.svg" alt="">
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+        <nav class="nav">
+            <!--<img src="images/ico-menu.svg" alt="Menu" class="title-menu">-->
+            <menu>
+                <div class="form-group">
+                    <img id="upload" class="mask" src="images/bg-menu-signin-photo.svg" height="160px" alt="Photo">
+                    <img class="border" src="images/shape-border-photo.svg" alt="Border">
+                </div>
+                <h1 class="nombre-user">DOCTOR NEFARIO</h1>
+                <div class="ico-admin">
+                    <img src="images/ico-admin-signin.svg" alt="Login">
+                </div>
+                <a href="myprofile.html">
+                    <img src="images/ico-myprofile.svg" alt="Myprofile">
+                </a>
+                <a href="dashboard-admin.html">
+                    <img src="images/ico-dashboard.svg" alt="Dashboard">
+                </a>
+                <a href="index.html">
+                    <img src="images/ico-logout.svg" alt="Logout">
+                </a>
+            </menu>
+        </nav>
+        <section class="scroll">
+            <form action="module-categories.html" method="get">
+                <div class="form-group">
+                    <img id="upload" class="mask-games" src="images/bg-menu-show-categories-photo.svg" height="160px" alt="Photo">
+                    <img class="border" src="images/shape-border-photo.svg" alt="Border">
+                    <input id="photo" type="file" name="photo" accept="images/*">
+                </div>
+                <div class="form-group-edit">
+                    <label>
+                        <img src="images/ico-game.svg" alt="Fullname">
+                        CATEGORY NAME:
+                    </label>
+                    <input type="text" name="fullname" value="XBOX SERIES">
+                </div>
+                <div class="form-group-edit">
+                    <label>
+                        <img src="images/ico-tipo.svg" alt="Email">
+                        MANUFACTURER:
+                    </label>
+                    <input type="text" name="email" value="MICROSOFT">
+                </div>
+                <div class="form-group-edit">
+                    <label>
+                        <img src="images/ico-date.svg" alt="Phone">
+                        REALESE DATE:
+                    </label>
+                    <input type="text" name="phone" value="2020-NOV-10">
+                </div>
+                <div class="form-group-edit">
+                    <label>
+                        <img src="images/ico-price.svg" alt="Password">
+                        PRICE:
+                    </label>
+                    <input type="text" name="password" value="69">
+                </div>
+                <div class="form-group-description">
+                    <label>
+                        <img src="images/ico-description.svg" alt="Date">
+                        DESCRIPTION:
+                    </label>
+                    <textarea name="description" id=""></textarea>                
+                </div>
+                <div class="form-group-edit">
+                    <button type="submit">
+                        <img src="images/content-btn-edit.svg" alt="Add">
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+
+            //-------------------------------------------------
+            $('header').on('click','.btn-burger', function(){
+                $(this).toggleClass('active')
+                $('.nav').toggleClass('active')
+            });
+            //-------------------------------------------------
+                //este sirve para el ojito de la contraseña
+            //-------------------------------------------------
+            $togglePass = false
+            $('section').on('click','.ico-eye', function(){
+
+                !$togglePass ? $(this).next().attr('type', 'text')
+                             : $(this).next().attr('type', 'password')
+
+                !$togglePass ? $(this).attr('src', 'images/ico-eye-close.svg')
+                             : $(this).attr('src', 'images/ico-eye.svg')
+                
+                $togglePass = !$togglePass     
+            });
+            //-------------------------------------------------
+                //este sirve para escoger la imagen desde la parte local en el registro
+            //-------------------------------------------------
+            $('.border').click(function (e) {
+                $('#photo').click()
+            });
+
+            $('#photo').change(function (e) {
+                e.preventDefault()
+                let reader = new FileReader()
+                reader.onload = function(evt) {
+                    $('#upload').attr('src', event.target.result)
+                }
+                reader.readAsDataURL(this.files[0])
+            })
+            //--------------------------------------------
+    </script>
+</body>
+
+</html>

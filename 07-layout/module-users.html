@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameApp - Module-User</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <main class="module-user">
+        <header>
+            <a href="dashboard-admin.html" class="btn-back">
+                <img src="images/btn-back.svg" alt="Back">
+            </a>
+            <img src="images/title-module-users.svg" alt="">
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+        <nav class="nav">
+            <!--<img src="images/ico-menu.svg" alt="Menu" class="title-menu">-->
+            <menu>
+                <div class="form-group">
+                    <img id="upload" class="mask" src="images/bg-menu-signin-photo.svg" height="160px" alt="Photo">
+                    <img class="border" src="images/shape-border-photo.svg" alt="Border">
+                </div>
+                <h1 class="nombre-user">DOCTOR NEFARIO</h1>
+                <div class="ico-admin">
+                    <img src="images/ico-admin-signin.svg" alt="Login">
+                </div>
+                <a href="myprofile.html">
+                    <img src="images/ico-myprofile.svg" alt="Myprofile">
+                </a>
+                <a href="dashboard-admin.html">
+                    <img src="images/ico-dashboard.svg" alt="Dashboard">
+                </a>
+                <a href="index.html">
+                    <img src="images/ico-logout.svg" alt="Logout">
+                </a>
+            </menu>
+        </nav>
+
+        <section class="scroll">
+            <article>
+                <a href="add-users.html" class="btn-add">
+                    <img class="img-add" src="images/ico-add.svg" alt="btn-add">
+                </a>
+                <div class="user">
+                    <img class="users" src="images/user-c1-01.png" alt="">
+                    <h1> DOCTOR NEFARIO </h1>
+                    <p> ADMIN </p>
+                    <div class="btn-function">
+                        <a href="show-users.html" class="btn-search">
+                        </a>
+                        <a href="edit-users.html" class="btn-edit">
+                        </a>
+                        <a href="delete-users.html" class="btn-delete">
+                        </a>
+                    </div>
+                </div>
+                <div class="user">
+                    <img class="users" src="images/user-c1-02.png" alt="">
+                    <h1> MARGO GRU </h1>
+                    <p> ADMIN </p>
+                    <div class="btn-function">
+                        <a href="show-users.html" class="btn-search">
+                        </a>
+                        <a href="edit-users.html" class="btn-edit">
+                        </a>
+                        <a href="delete-users.html" class="btn-delete">
+                        </a>
+                    </div>
+                </div>
+                <div class="user">
+                    <img class="users" src="images/user-c1-03.png" alt="">
+                    <h1> EDITH GRU </h1>
+                    <p> COSTUMER </p>
+                    <div class="btn-function">
+                        <a href="show-users.html" class="btn-search">
+                        </a>
+                        <a href="edit-users.html" class="btn-edit">
+                        </a>
+                        <a href="delete-users.html" class="btn-delete">
+                        </a>
+                    </div>
+                </div>
+                <div class="user">
+                    <img class="users" src="images/user-c1-04.png" alt="">
+                    <h1> AGNES GRU </h1>
+                    <p> COSTUMER </p>
+                    <div class="btn-function">
+                        <a href="show-users.html" class="btn-search">
+                        </a>
+                        <a href="edit-users.html" class="btn-edit">
+                        </a>
+                        <a href="delete-users.html" class="btn-delete">
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <div class="footer-mod-user">
+                <a href="view.html" class="arrow-left">
+                </a>
+                <h4>01 DE 04</h4>
+                <a href="view.html" class="arrow-right">
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+
+        //-------------------------------------------------
+        $('header').on('click','.btn-burger', function(){
+            $(this).toggleClass('active')
+            $('.nav').toggleClass('active')
+        });
+        //-------------------------------------------------
+            //este sirve para el ojito de la contraseña
+        //-------------------------------------------------
+        $togglePass = false
+        $('section').on('click','.ico-eye', function(){
+
+            !$togglePass ? $(this).next().attr('type', 'text')
+                         : $(this).next().attr('type', 'password')
+
+            !$togglePass ? $(this).attr('src', 'images/ico-eye-close.svg')
+                         : $(this).attr('src', 'images/ico-eye.svg')
+            
+            $togglePass = !$togglePass     
+        });
+        //--------------------------------------------
+</script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameApp - Dashboard-Admin</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <main class="dashboard-admin">
+        <header>
+            <!--<a href="javascript:;" class="btn-back">
+                <img src="images/btn-back.svg" alt="Back">
+            </a>-->
+            <img src="images/title-dashboard.svg" alt="">
+            <svg class="btn-burger" viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path class="line middle" d="m 70,50 h -40" />
+                <path class="line bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </header>
+        <nav class="nav">
+            <!--<img src="images/ico-menu.svg" alt="Menu" class="title-menu">-->
+            <menu>
+                <div class="form-group">
+                    <img id="upload" class="mask" src="images/bg-menu-signin-photo.svg" height="160px" alt="Photo">
+                    <img class="border" src="images/shape-border-photo.svg" alt="Border">
+                </div>
+                <h1 class="nombre-user">DOCTOR NEFARIO</h1>
+                <div class="ico-admin">
+                    <img src="images/ico-admin-signin.svg" alt="Login">
+                </div>
+                <a href="myprofile.html">
+                    <img src="images/ico-myprofile.svg" alt="Myprofile">
+                </a>
+                <a href="dashboard-admin.html">
+                    <img src="images/ico-dashboard.svg" alt="Dashboard">
+                </a>
+                <a href="index.html">
+                    <img src="images/ico-logout.svg" alt="Logout">
+                </a>
+            </menu>
+        </nav>
+
+        <section>
+            <!--<article>
+                <div class="row">
+                        <img src="images/ico-users-dash.svg" alt="Email">
+                    <div class="row-module">    
+                        <p>MODULE:</p>
+                        <h4>USERS</h4>
+                    </div>
+                </div>
+                <div class="row">
+                        <p>20 ROWS</p>
+                        <a href="view.html" class="btn-more">
+                            VIEW
+                        </a>
+                </div>          
+            </article>-->
+            <div class="user">
+                <div class="img">
+                    <img src="images/ico-users-dash.svg" alt="">
+                </div>
+                <div class="title-module">
+                    <p>
+                        MODULE:
+                    </p>
+                    <h4>
+                        USERS
+                    </h4>
+                </div>
+                <div class="row">
+                    <h4>
+                        20 ROWS
+                    </h4>
+                </div>
+                <div class="btn-view">
+                    <a href="module-users.html" class="btn-more">
+                        VIEW
+                    </a>
+                </div>
+            </div>
+            <div class="categories">
+                <div class="img">
+                    <img src="images/ico-categories-dash.svg" alt="">
+                </div>
+                <div class="title-module-category">
+                    <p>
+                        MODULE:
+                    </p>
+                    <h4>
+                        CATEGORIES
+                    </h4>
+                </div>
+                <div class="row">
+                    <h4>
+                        6 ROWS
+                    </h4>
+                </div>
+                <div class="btn-view">
+                    <a href="module-categories.html" class="btn-more">
+                        VIEW
+                    </a>
+                </div>
+            </div>
+            <div class="games">
+                <div class="img">
+                    <img src="images/ico-games-dash.svg" alt="">
+                </div>
+                <div class="title-module-games">
+                    <p>
+                        MODULE:
+                    </p>
+                    <h4>
+                        GAMES
+                    </h4>
+                </div>
+                <div class="row">
+                    <h4>
+                        40 ROWS
+                    </h4>
+                </div>
+                <div class="btn-view">
+                    <a href="module-games.html" class="btn-more">
+                        VIEW
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--<section>
+            <article>
+                <figure>
+                    <div class="row"></div>
+                    <img src="images/ico-email.svg" alt="Email">
+                    <h2>MODULE: USERS</h2>
+                    <a href="view.html" class="btn-more">
+                        VIEW
+                    </a>
+                </figure>
+            </article>
+        </section>-->
+
+
+            <!--<form class="form-login" action="dashboard.html" method="get">
+                <div class="form-group">
+                    <label>
+                        <img src="images/ico-email.svg" alt="Email">
+                        EMAIL:
+                    </label>
+                    <input type="email" name="email" placeholder="gru@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <img src="images/ico-pass.svg" alt="Password">
+                        PASSWORD:
+                    </label>
+                    <img class="ico-eye" src="images/ico-eye.svg" alt="Eye">
+                    <input type="password" name="password" placeholder="dontmesswithmydog">
+                </div>
+                <div class="form-group">
+                    <button class="button-login" type="submit">
+                        <img src="images/content-btn-login.svg" alt="Login">
+                    </button>
+                    <a href="">Forgot your password?</a>
+                </div>
+            </form>
+        </section>-->
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+
+        //-------------------------------------------------
+        $('header').on('click','.btn-burger', function(){
+            $(this).toggleClass('active')
+            $('.nav').toggleClass('active')
+        });
+        //-------------------------------------------------
+            //este sirve para el ojito de la contraseña
+        //-------------------------------------------------
+        $togglePass = false
+        $('section').on('click','.ico-eye', function(){
+
+            !$togglePass ? $(this).next().attr('type', 'text')
+                         : $(this).next().attr('type', 'password')
+
+            !$togglePass ? $(this).attr('src', 'images/ico-eye-close.svg')
+                         : $(this).attr('src', 'images/ico-eye.svg')
+            
+            $togglePass = !$togglePass     
+        });
+        //--------------------------------------------
+</script>
+</body>
+
+</html>
