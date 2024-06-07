@@ -1,0 +1,10 @@
+para generar el proytecto se pone
+-> composer create-project laravel/laravel nombredelproyecto
+
+para verificar la version
+-> php artisan --version
+
+para iniciar el sevidor 
+-> php artisan serve
+
+-> php artisan key:generate
