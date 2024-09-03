@@ -33,34 +33,34 @@
                 </a>
             </div>
 
-            
+
             <div class="loader"></div>
             <div id="list">
-            @foreach ($users as $user)
-                <div class="user">
-                    <img class="users" src="{{ asset('images') . '/' . $user->photo }}" alt="Photo">
-                    {{-- <img class="border" src="{{ asset('images/shape-border-photo.svg') }}" alt="Border"> --}}
-                    <h1> {{ $user->fullname }} </h1>
-                    <p> {{ $user->role }} </p>
-                    <div class="btn-function">
-                        <a href="{{ url('users/' . $user->id) }}" class="btn-search">
-                        </a>
-                        <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn-edit">
-                        </a>
-                        <a href="javascript:;" class="btn-delete" data-fullname="{{ $user->fullname }}">
-                        </a>
-                        <form action="{{ url('users/' . $user->id) }}" method="POST" style="display: none">
-                            @csrf
-                            @method('delete')
-                        </form>
+                @foreach ($users as $user)
+                    <div class="user">
+                        <img class="users" src="{{ asset('images') . '/' . $user->photo }}" alt="Photo">
+                        {{-- <img class="border" src="{{ asset('images/shape-border-photo.svg') }}" alt="Border"> --}}
+                        <h1> {{ $user->fullname }} </h1>
+                        <p> {{ $user->role }} </p>
+                        <div class="btn-function">
+                            <a href="{{ url('users/' . $user->id) }}" class="btn-search">
+                            </a>
+                            <a href="{{ url('users/' . $user->id . '/edit') }}" class="btn-edit">
+                            </a>
+                            <a href="javascript:;" class="btn-delete" data-fullname="{{ $user->fullname }}">
+                            </a>
+                            <form action="{{ url('users/' . $user->id) }}" method="POST" style="display: none">
+                                @csrf
+                                @method('delete')
+                            </form>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             </div>
         </article>
     </section>
 
-   {{--  <footer>
+    {{--  <footer>
         <div class="footer-mod-user">
             {{ $users->links() }} 
             {{ $users->links('layouts.paginator') }}
@@ -76,26 +76,26 @@
         <div class="footer-mod-user">
             {{-- Renderiza la vista de paginación personalizada --}}
             {{ $users->links('layouts.paginator') }}
-    
+
             {{-- Enlace a la página anterior --}}
             <a href="{{ $users->previousPageUrl() }}" class="arrow-left">
             </a>
-    
+
             {{-- Muestra el número de página actual y el total de páginas --}}
             <h4>{{ $users->currentPage() }} DE {{ $users->lastPage() }}</h4>
-    
+
             {{-- Enlace a la página siguiente --}}
             <a href="{{ $users->nextPageUrl() }}" class="arrow-right">
             </a>
         </div>
     </footer>
-    
+
 
 @endsection
 
 @section('js')
     <script>
-         $(document).ready(function() {
+        $(document).ready(function() {
             $('.loader').hide()
             //-------------------------------------------------
             $('header').on('click', '.btn-burger', function() {
@@ -114,7 +114,7 @@
             @endif
 
             //-------------------------------------------------
-            
+
             //--------------------------------------------
             $('.btn-delete').on('click', function() {
                 var $this = $(this);
@@ -127,7 +127,7 @@
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Si, eliminar",
-                    cancelButtonText:"Cancelar"
+                    cancelButtonText: "Cancelar"
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $this.next('form').submit()
@@ -136,7 +136,7 @@
             })
 
             //-------------------------------------------------
-            $('body').on('keyup', '#qsearch', function (e){
+            $('body').on('keyup', '#qsearch', function(e) {
                 e.preventDefault()
                 $query = $(this).val()
                 $token = $('input[name=_token]').val()
@@ -146,18 +146,20 @@
                 $('#list').hide()
 
                 setTimeout(() => {
-                    $.post($model + '/search',
-                    { q: $query,  _token: $token },
-                    function (data){
-                        $('#list').html(data)
-                        $('.loader').hide()
-                        $('#list').fadeIn('slow')
-                    }
-                )
+                    $.post($model + '/search', {
+                            q: $query,
+                            _token: $token
+                        },
+                        function(data) {
+                            $('#list').html(data)
+                            $('.loader').hide()
+                            $('#list').fadeIn('slow')
+                        }
+                    )
                 }, 1000);
-                
-            //--------------------------------------------
-        })
+
+                //--------------------------------------------
+            })
         });
     </script>
 @endsection

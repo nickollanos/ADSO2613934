@@ -4,7 +4,7 @@
 
 @section('content')
 <header>
-    <a href="{{ url('users') }}" class="btn-back-add-users">
+    <a href="{{ url('categories') }}" class="btn-back-add-users">
         <img src="{{ asset('images/btn-back.svg') }}" alt="Back">
     </a>
     <img class="img-add" src="{{ asset('images/title-add.svg') }}" alt="">

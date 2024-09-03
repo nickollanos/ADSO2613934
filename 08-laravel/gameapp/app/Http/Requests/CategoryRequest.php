@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Category;
 
 class CategoryRequest extends FormRequest
 {
@@ -22,36 +21,47 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        if ($this->method() === 'PUT') {
+        if ($this->isMethod('put')) {
             return [
                 'name' => 'required|string',
                 'manufacturer' => 'required|string',
                 'releasedate' => 'required|date',
-                'description' => 'required|string',
-
+                'description' => 'nullable|string',
             ];
         } else {
             return [
-                'name' => ['required', 'string'.Category::class],
-                'image' => ['required', 'image'],
-                'manufacturer' => ['required', 'string'],
-                'releasedate' => ['required', 'date'],
-                'description' => ['required', 'string']
+                'name' => 'required|string',
+                'manufacturer' => 'required|string',
+                'releasedate' => 'required|date',
+                'description' => 'nullable|string',
+                'image' => 'nullable|image',
             ];
         }
     }
 
+    /**
+     * Custom error messages for validation rules.
+     *
+     * @return array<string, string>
+     */
     public function messages(): array
     {
         return [
-            'name.required' => 'The: atribute is required'
+            'name.required' => 'The name attribute is required.',
+            // Añade mensajes personalizados para otras reglas si es necesario
         ];
     }
 
+    /**
+     * Custom attribute names for validation messages.
+     *
+     * @return array<string, string>
+     */
     public function attributes(): array
     {
         return [
-            'name' => 'Name'
+            'name' => 'Name',
+            // Añade atributos personalizados si es necesario
         ];
     }
 }

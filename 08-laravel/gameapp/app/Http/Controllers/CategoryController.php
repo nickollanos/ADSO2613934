@@ -44,7 +44,7 @@ class CategoryController extends Controller
         } else {
             $photoName = 'categorie03.png';
         }
-        $category = new Category();
+        $category = new Category;
         $category->name = $request->name;
         $category->image = $photoName;
         $category->manufacturer = $request->manufacturer;

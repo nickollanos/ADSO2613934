@@ -1025,8 +1025,8 @@ main.edit-categories{
                     font-size: 24px;
                     font-family: var(--ff-heading);
                     color: var(--color-first);
-                    height: 150px;
-                    width: 300px;
+                    height: 116px;
+                    width: 280px;
                     padding-inline: 16px;
                     resize: none;
                     margin-left: 1rem;

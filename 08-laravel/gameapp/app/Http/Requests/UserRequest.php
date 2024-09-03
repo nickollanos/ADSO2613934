@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        if($this->method() == 'PUT') {
+        if ($this->method() == 'PUT') {
             return [
                 'document' => 'required|numeric|unique:users,document,'.$this->id,
                 'fullname' => 'required|string',

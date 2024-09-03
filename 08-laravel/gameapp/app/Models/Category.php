@@ -8,13 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'image',
         'manufacturer',
         'releasedate',
-        'description',
+        'description'
     ];
+
 
     //Relationship: Category has many games
     public function games(){
