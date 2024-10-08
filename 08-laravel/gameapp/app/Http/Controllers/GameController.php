@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
@@ -17,7 +18,7 @@ class GameController extends Controller
         $games = Game::paginate(5);
         // dd($games->toArray());
         return view('games.index')
-               ->with('games', $games);
+            ->with('games', $games);
     }
 
     /**
@@ -27,7 +28,7 @@ class GameController extends Controller
     {
         $cats = Category::all();
         return view('games.create')
-               -> with('cats', $cats);
+            ->with('cats', $cats);
     }
 
     /**
@@ -37,31 +38,31 @@ class GameController extends Controller
     {
         // dd($request->all());
         if ($request->hasFile('image')) {
-            $photo = $request->file('image');
-            $photoName = $request->file('image')->getClientOriginalName();
+            $image = $request->file('image');
+            $imageName = $request->file('image')->getClientOriginalName();
 
             // Define la ruta de destino
             $destinationPath = public_path('images/categories');
 
             // Mueve el archivo a la ruta de destino
-            $photo->move($destinationPath, $photoName);
+            $image->move($destinationPath, $imageName);
         } else {
-            $photoName = 'categorie03.png';
+            $imageName = 'categorie03.png';
         }
-        $game = new Game;
-        $game->title = $request->title;
-        $game->image = $request->image;
-        $game->developer = $request->developer;
+        $game              = new Game;
+        $game->title       = $request->title;
+        $game->image       = $image;
+        $game->developer   = $request->developer;
         $game->releasedate = $request->releasedate;
         $game->category_id = $request->category_id;
-        $game->price = $request->price;
-        $game->genre = $request->genre;
-        $game->slider = $request->slider;
+        $game->user_id     = Auth::user()->id;
+        $game->price       = $request->price;
+        $game->genre       = $request->genre;
         $game->description = $request->description;
 
         $game->save();
 
-        if($game->save()){
+        if ($game->save()) {
             return redirect('games')->with('message', 'La categoría fue creada con éxito');
         }
 
@@ -73,7 +74,8 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        //
+        return view('games.show')
+            ->with('game', $game);
     }
 
     /**
@@ -81,7 +83,10 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        //
+        $cats = Category::all();
+        return view('games.edit')
+            ->with('game', $game)
+            ->with('cats', $cats);
     }
 
     /**
@@ -89,14 +94,45 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        //
+        // dd($request->all());
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $request->file('image')->getClientOriginalName();
+
+            // Define la ruta de destino
+            $destinationPath = public_path('images/categories');
+
+            // Mueve el archivo a la ruta de destino
+            $image->move($destinationPath, $imageName);
+        } else {
+            $imageName = 'categorie03.png';
+        }
+
+        $game              = new Game;
+        $game->title       = $request->title;
+        $game->image       = $image;
+        $game->developer   = $request->developer;
+        $game->releasedate = $request->releasedate;
+        $game->category_id = $request->category_id;
+        $game->user_id     = Auth::user()->id;
+        $game->price       = $request->price;
+        $game->genre       = $request->genre;
+        $game->description = $request->description;
+
+        if ($game->save()) {
+            return redirect('games')
+                ->with('message' . 'The user: ' . $game->title . ' was successfully updated!');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game)
+    public function destroy($id)
     {
-        //
+        $game = Game::findOrFail($id);
+        $game->delete();
+
+        return redirect()->route('games.index')->with('message', 'Usuario eliminado exitosamente');
     }
 }

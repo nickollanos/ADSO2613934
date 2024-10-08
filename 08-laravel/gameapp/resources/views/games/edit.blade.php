@@ -4,7 +4,7 @@
 
 @section('content')
 <header>
-    <a href="{{ url('users') }}" class="btn-back-add-users">
+    <a href="{{ url('games') }}" class="btn-back-add-users">
         <img src="{{ asset('images/btn-back.svg') }}" alt="Back">
     </a>
     <img class="img-add" src="{{ asset('images/title-add.svg') }}" alt="">
@@ -18,7 +18,7 @@
 </header>
 @include('layouts.menuburger')
 <section class="scroll">
-    <form action="{{ url('users/' . $user->id ) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('games/' . $game->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
             @if ( count( $errors->all()) > 0 )
@@ -28,59 +28,88 @@
             @endif
         
         <div class="form-group">
-            <img id="upload" class="mask" src="{{ asset('images/') .  $user->photo }}"  height="160px" alt="Photo">
+            <img id="upload" class="mask" src="{{ asset('images/') .  $game->image }}"  height="160px" alt="Photo">
             <img class="border" src="{{ asset('images/shape-border-photo.svg') }}" alt="Border">
             <input id="photo" type="file" name="photo" accept="images/*">
-            <input type="hidden" name="originphoto" value="{{ $user->photo }}">
-            <input type="hidden" name="id" value="{{ $user->id }}">
+            <input type="hidden" name="originphoto" value="{{ $game->image }}">
+            <input type="hidden" name="id" value="{{ $game->id }}">
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-user.svg') }}" alt="document" >
-                DOCUMENT:
+                <img src="{{ asset('images/ico-game.svg') }}" alt="title">
+                NAME GAME:
             </label>
-            <input type="text" name="document" placeholder="1053838444" value="{{ old('document', $user->document) }}">
+            <input type="text" name="title" value="{{ old('title', $game->title) }}" placeholder="EFOOTBALL 2024">
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-user.svg') }}" alt="fullname">
-                FULLNAME:
+                <img src="{{ asset('images/ico-categoria.svg') }}" alt="Category">
+                CATEGORY:
             </label>
-            <input type="text" name="fullname" placeholder="JAIME DE LA PAVA"  value="{{ old('fullname', $user->fullname) }}">
+            <select name="category_id">
+                <option value="">SELECT</option>
+                @foreach($cats as $cat)
+                    <option value="{{ $cat->id }}" @if(old('category_id') == $cat->id ) selected @endif>{{ $cat->name }}</option>
+                @endforeach
+            </select>
+            {{-- <input type="text" name="Category" placeholder="Play Station 5"> --}}
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-user.svg') }}" alt="gender">
-                GENDER:
+                <img src="{{ asset('images/ico-categoria.svg') }}" alt="Category">
+                SLIDER:
             </label>
-            <input type="text" name="gender" placeholder="MASCULINO"  value="{{ old('gender', $user->gender) }}">
-            {{-- <select name="gender">
-                <option name="gender" value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                <option name="gender" value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
-                <option name="gender" value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
-            </select> --}}
+            <select name="slider">
+                <option value="">SELECT</option>
+                <option value="1" @if(old('slider') == 1) selected @endif>ACTIVE</option>
+                <option value="0" @if(old('slider') == 0) selected @endif>INACTIVE</option>
+            </select>
+            {{-- <input type="text" name="Category" placeholder="Play Station 5"> --}}
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-date.svg') }}" alt="Date">
-                BIRTH DATE:
+                <img src="{{ asset('images/ico-game.svg') }}" alt="developer">
+                DEVELOPER:
             </label>
-            <input type="text" name="birthdate" placeholder="1920-03-02" value="{{ old('birthdate', $user->birthdate) }}">
+            <input type="text" name="developer" value"{{ old('developer', $game->developer) }}"  >
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-phone.svg') }}" alt="Phone" {{ old('phone') }}>
-                PHONE NUMBER:
+                <img src="{{ asset('images/ico-date.svg') }}" alt="releasedate">
+                YEAR:
             </label>
-            <input type="text" name="phone" placeholder="3452345" value="{{ old('phone', $user->phone) }}">
+            <input type="text" name="releasedate" value"{{ old('releasedate', $game->developer) }}" placeholder="2024">
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-email.svg') }}" alt="Email" {{ old('email') }}>
-                EMAIL:
+                <img src="{{ asset('images/ico-game.svg') }}" alt="genre">
+                GENRE:
             </label>
-            <input type="text" name="email" placeholder="gru@gmail.com" value="{{ old('email', $user->email) }}">
+            <input type="text" name="genre" value"{{ old('genre', $game->genre) }}" placeholder="EFOOTBALL 2024">
         </div>
+
+        <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-price.svg') }}" alt="price">
+                PRICE:
+            </label>
+            <input type="number" name="price" value"{{ old('price', $game->price) }}" placeholder="$59">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-description.svg') }}" alt="description">
+                DESCRIPTION:
+            </label>
+            <textarea name="description" placeholder="Es un videojuego de simulacion de futbol..." >{{ old('description', $game->description) }}</textarea>                
+        </div>
+
         <div class="form-group">
             <button type="submit">
                 <img src="{{ asset('images/content-btn-edit.svg') }}" alt="Edit">

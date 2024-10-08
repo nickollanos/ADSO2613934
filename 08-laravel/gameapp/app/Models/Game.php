@@ -22,7 +22,6 @@ class Game extends Model
         'userId',
         'price',
         'genre',
-        'slider',
         'description',
     ];
 

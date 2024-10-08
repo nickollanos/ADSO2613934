@@ -18,7 +18,7 @@
     </nav>
 @endif --}}
 {{-- @if ($paginator->hasPages())
-            Previous Page Link 
+            Previous Page Link
             @if ($paginator->onFirstPage())
                 <a class="arrow-left" href="javascript:;" style="opacity: 0.4; cursor:default">
                     <img src="{{asset('images/btn-prev.svg')}}" alt="Prev">
@@ -26,17 +26,17 @@
             @else
                 <a class="arrow-left" href="{{ $paginator->previousPageUrl() }}">
                     <img src="{{ asset('images/btn-prev.svg')}}" alt="Prev">
-                </a>                
+                </a>
             @endif
             <h4>{{ $paginator->currentPage() .'/'. $paginator->lastPage() }}</h4>
-            Next Page Link 
+            Next Page Link
             @if ($paginator->hasMorePages())
                 <a class="arrow-right" href="{{ $paginator->nextPageUrl() }}">
-                    <img src="{{ asset('images/btn-next.svg')}}" alt="Next"> 
+                    <img src="{{ asset('images/btn-next.svg')}}" alt="Next">
                 </a>
             @else
                 <a class="arrow-right" href="javascript:;" style="opacity: 0.4; cursor:default">
-                    <img src="{{ asset('images/btn-next.svg') }}" alt="Next"> 
+                    <img src="{{ asset('images/btn-next.svg') }}" alt="Next">
                 </a>
             @endif
 @endif--}}

@@ -29,7 +29,7 @@
         <div class="form-group">
             <img id="upload" class="mask" src="{{ asset('images/bg-upload-photo.svg') }}"  height="160px" alt="Photo">
             <img class="border" src="{{ asset('images/shape-border-photo.svg') }}" alt="Border">
-            <input id="photo" type="file" name="photo" accept="images/*">
+            <input id="photo" type="file" name="image" accept="images/*">
         </div>
         {{-- <div class="form-group">
             <img id="upload" class="mask" src="images/bg-upload-photo.svg" height="160px" alt="Photo">
@@ -38,11 +38,12 @@
         </div> --}}
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-game.svg') }}" alt="Name-Game">
+                <img src="{{ asset('images/ico-game.svg') }}" alt="title">
                 NAME GAME:
             </label>
-            <input type="text" name="Name-Game" placeholder="EFOOTBALL 2024">
+            <input type="text" name="title" value="{{ old('title') }}" placeholder="EFOOTBALL 2024">
         </div>
+
         <div class="form-group">
             <label>
                 <img src="{{ asset('images/ico-categoria.svg') }}" alt="Category">
@@ -56,27 +57,69 @@
             </select>
             {{-- <input type="text" name="Category" placeholder="Play Station 5"> --}}
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-date.svg') }}" alt="Year">
+                <img src="{{ asset('images/ico-categoria.svg') }}" alt="Category">
+                SLIDER:
+            </label>
+            <select name="slider">
+                <option value="">SELECT</option>
+                <option value="1" @if(old('slider') == 1) selected @endif>ACTIVE</option>
+                <option value="0" @if(old('slider') == '0') selected @endif>INACTIVE</option>
+            </select>
+            {{-- <input type="text" name="Category" placeholder="Play Station 5"> --}}
+        </div>
+
+        <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-game.svg') }}" alt="developer">
+                DEVELOPER:
+            </label>
+            <input type="text" name="developer" value"{{ old('developer') }}" placeholder="XBOX">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-date.svg') }}" alt="releasedate">
                 YEAR:
             </label>
-            <input type="text" name="Year" placeholder="2024">
+            <input type="text" name="releasedate" value"{{ old('releasedate') }}" placeholder="2024">
         </div>
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-descrition.svg') }}" alt="Description">
+                <img src="{{ asset('images/ico-game.svg') }}" alt="genre">
+                GENRE:
+            </label>
+            <input type="text" name="genre" value"{{ old('genre') }}" placeholder="EFOOTBALL 2024">
+        </div>
+
+        {{-- <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-descrition.svg') }}" alt="description">
                 DESCRIPTION:
             </label>
-            <input type="text" name="Description" placeholder="Es un videojuego de simulacion de futbol...">
-        </div>
+            <input type="text" name="description" value"{{ old('description') }}" placeholder="Es un videojuego de simulacion de futbol...">
+        </div> --}}
+
         <div class="form-group">
             <label>
-                <img src="{{ asset('images/ico-price.svg') }}" alt="Price">
+                <img src="{{ asset('images/ico-price.svg') }}" alt="price">
                 PRICE:
             </label>
-            <input type="text" name="Price" placeholder="$59">
+            <input type="text" name="price" value"{{ old('price') }}" placeholder="$59">
         </div>
+
+        <div class="form-group">
+            <label>
+                <img src="{{ asset('images/ico-description.svg') }}" alt="description">
+                DESCRIPTION:
+            </label>
+            <textarea name="description" placeholder="Es un videojuego de simulacion de futbol..." >{{ old('description') }}</textarea>                
+        </div>
+
+       
         <div class="form-group">
             <button type="submit">
                 <img src="{{ asset('images/content-btn-add.svg') }}" alt="Add">

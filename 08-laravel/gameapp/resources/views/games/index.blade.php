@@ -38,7 +38,7 @@
             <div id="list">
                 @foreach ($games as $game)
                     <div class="game">
-                        <img class="games" src="{{ asset('images') . '/' . $game->image}}" alt="Photo">
+                        <img class="games" src="{{ asset('images') . '/' . $game->image }}" alt="Photo">
                         {{-- <img class="border" src="{{ asset('images/shape-border-photo.svg') }}" alt="Border"> --}}
                         <h1> {{ $game->title }} </h1>
                         <p> {{ $game->category->name }} </p>
@@ -59,21 +59,8 @@
             </div>
         </article>
     </section>
-
-    {{--  <footer>
-        <div class="footer-mod-user">
-            {{ $users->links() }} 
-            {{ $users->links('layouts.paginator') }}
-            <a href="view.html" class="arrow-left">
-            </a>
-            <h4>01 DE 04</h4>
-            <a href="view.html" class="arrow-right">
-            </a>
-        </div>
-    </footer> --}}
-
-    <footer>
-        <div class="footer-mod-user">
+    <footer class="game">
+        <div class="footer-mod-game">
             {{-- Renderiza la vista de paginación personalizada --}}
             {{ $games->links('layouts.paginator') }}
 
