@@ -50,7 +50,7 @@
                 <img src="{{ asset('images/ico-profile.svg') }}" alt="Login">
                 <h1>
                     @if ($game->slider == 1)
-                        active
+                        ACTIVE
                     @else
                         INACTIVE
                     @endif
@@ -59,7 +59,7 @@
             <div class="sexo">
                 <img src="{{ asset('images/ico-profile.svg') }}" alt="Login">
                 <h1>
-                    {{ $game->name }}
+                    {{ $game->title }}
                 </h1>
             </div>
             <div class="fecha-nac">
@@ -71,16 +71,21 @@
             <div class="direccion">
                 <img src="{{ asset('images/ico-profile.svg') }}" alt="Login">
                 <h1>
-                    ${{ $game->price }}
+                    {{ $game->price }}
                 </h1>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label>
                     <img src="{{ asset('images/ico-description.svg') }}" alt="description">
                     {{ $game->description }}
                 </label>
                 <textarea name="description" placeholder="Es un videojuego de simulacion de futbol..." >{{ old('description') }}</textarea>                
+            </div> --}}
+
+            <div class="description-1">
+                <img class="desc" src="{{ asset('images/ico-description.svg') }}" alt="Desc">
+                <h4>{{ $game->description }}</h4>
             </div>
 
         </div>

@@ -9,21 +9,21 @@
 <body>
     <table>
         <tr>
-            <th>ID</th>
-            <th>FULLNAME</th>
-            <th>EMAIL</th>
-            <th>PHONE</th>
-            <th>ROLE</th>
-            <th>PHOTO</th>
+            <th>TITLE</th>
+            <th>DEVELOPER</th>
+            <th>RELEASEDATE</th>
+            <th>PRICE</th>
+            <th>GENRE</th>
+            {{-- <th>IMAGEN</th> --}}
         </tr>
-        @foreach($users as $user)
+        @foreach($games as $game)
         <tr>
-            <td> {{ $user->id }} </td>
-            <td> {{ $user->fullname }}  </td>
-            <td> {{ $user->email }} </td>
-            <td> {{ $user->phone }} </td>
-            <td> {{ $user->role }} </td>
-            {{-- <td> <img src="{{ public_path().'/images/'.$user->photo }}" width="48px"></td> --}}
+            <td> {{ $game->title }} </td>
+            <td> {{ $game->developer }}  </td>
+            <td> {{ $game->releasedate }} </td>
+            <td> {{ $game->price }} </td>
+            <td> {{ $game->genre }} </td>
+            {{-- <td> <img src="{{ public_path().'/images/'.$game->image }}" width="48px"></td> --}}
         </tr>
         @endforeach
     </table>

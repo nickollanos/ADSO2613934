@@ -1539,6 +1539,42 @@ main.dashboard-costumer{
                         width: 130px;
                     }
                 }
+
+                div.description-1{
+                    background: url(../images/btn-show-games-description.png) no-repeat center;
+                    color: var(--color-fourth);
+                    font-size: 20px;
+                    font-weight: 400;
+                    height: 80px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 320px;
+                    height: 120px;
+                    margin-left: 2.5rem;
+                    margin-top: 0rem;
+    
+                    h4{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-top: 1rem;
+                        color: var(--color-first);
+                        font-family: var(--ff-heading);
+                        font-weight: 700;
+                        font-size: 14px;
+                        width: 290px;
+                    }
+    
+                    img.desc{
+                        width: 30px;
+                        height: 30px;
+                        margin-left: -15rem;
+                    }
+                }
+            }
+
             }
 
             div.description{
@@ -1608,9 +1644,44 @@ main.dashboard-costumer{
                     margin-left: -15rem;
                 }
             }
+
+            div.description-1{
+                background: url(../images/btn-show-games-description.png) no-repeat center;
+                color: var(--color-fourth);
+                font-size: 20px;
+                font-weight: 400;
+                height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 320px;
+                height: 120px;
+                margin-left: 2.5rem;
+                margin-top: -2rem;
+
+                h4{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-top: 1rem;
+                    color: var(--color-first);
+                    font-family: var(--ff-heading);
+                    font-weight: 700;
+                    font-size: 14px;
+                    width: 290px;
+                }
+
+                img.desc{
+                    width: 30px;
+                    height: 30px;
+                    margin-left: -15rem;
+                }
+            }
+        }
         }
     }
- }
+ 
 
  /* ------------------
    MY COLLECTION

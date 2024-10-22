@@ -65,7 +65,7 @@
             <select name="slider">
                 <option value="">SELECT</option>
                 <option value="1" @if(old('slider') == 1) selected @endif>ACTIVE</option>
-                <option value="0" @if(old('slider') == 0) selected @endif>INACTIVE</option>
+                <option value="0" @if(old('slider') == '0') selected @endif>INACTIVE</option>
             </select>
             {{-- <input type="text" name="Category" placeholder="Play Station 5"> --}}
         </div>
@@ -75,7 +75,7 @@
                 <img src="{{ asset('images/ico-game.svg') }}" alt="developer">
                 DEVELOPER:
             </label>
-            <input type="text" name="developer" value"{{ old('developer', $game->developer) }}"  >
+            <input type="text" name="developer" value="{{ old('developer', $game->developer) }}"  >
         </div>
 
         <div class="form-group">
@@ -83,7 +83,7 @@
                 <img src="{{ asset('images/ico-date.svg') }}" alt="releasedate">
                 YEAR:
             </label>
-            <input type="text" name="releasedate" value"{{ old('releasedate', $game->developer) }}" placeholder="2024">
+            <input type="text" name="releasedate" value="{{ old('releasedate', $game->releasedate) }}" placeholder="2024">
         </div>
 
         <div class="form-group">
@@ -91,7 +91,7 @@
                 <img src="{{ asset('images/ico-game.svg') }}" alt="genre">
                 GENRE:
             </label>
-            <input type="text" name="genre" value"{{ old('genre', $game->genre) }}" placeholder="EFOOTBALL 2024">
+            <input type="text" name="genre" value="{{ old('genre', $game->genre) }}" placeholder="EFOOTBALL 2024">
         </div>
 
         <div class="form-group">
@@ -99,7 +99,7 @@
                 <img src="{{ asset('images/ico-price.svg') }}" alt="price">
                 PRICE:
             </label>
-            <input type="number" name="price" value"{{ old('price', $game->price) }}" placeholder="$59">
+            <input type="number" name="price" value="{{ old('price', $game->price) }}" placeholder="$59">
         </div>
 
         <div class="form-group">

@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
 use Illuminate\Support\Facades\Auth;
+use PDF;
+use App\Exports\GameExport;
 
 class GameController extends Controller
 {
@@ -105,16 +107,14 @@ class GameController extends Controller
             // Mueve el archivo a la ruta de destino
             $image->move($destinationPath, $imageName);
         } else {
-            $imageName = 'categorie03.png';
+            $image = 'categorie03.png';
         }
 
-        $game              = new Game;
         $game->title       = $request->title;
         $game->image       = $image;
         $game->developer   = $request->developer;
         $game->releasedate = $request->releasedate;
         $game->category_id = $request->category_id;
-        $game->user_id     = Auth::user()->id;
         $game->price       = $request->price;
         $game->genre       = $request->genre;
         $game->description = $request->description;
@@ -133,6 +133,22 @@ class GameController extends Controller
         $game = Game::findOrFail($id);
         $game->delete();
 
-        return redirect()->route('games.index')->with('message', 'Usuario eliminado exitosamente');
+        return redirect()->route('games.index')->with('message', 'Game eliminado exitosamente');
+    }
+
+    public function search(Request $request){
+        $games = Game::names($request->q)->paginate(5);
+        return view('games.search')->with('games', $games);
+    }
+
+    public function pdf(){
+        $games = Game::all();
+        $pdf = PDF::loadView('games.pdf', compact('games'));
+        return $pdf->download('allgames.pdf');
+    }
+
+    public function excel(){
+        return \Excel::download(new GameExport, 'allgames.xlsx');
     }
 }
+
